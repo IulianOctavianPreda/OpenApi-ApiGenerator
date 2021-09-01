@@ -1,0 +1,59 @@
+{
+  "version": 2,
+  "projects": {
+    "api-generator": {
+      "root": "packages/api-generator",
+      "sourceRoot": "packages/api-generator/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/packages/api-generator",
+            "main": "packages/api-generator/src/main.ts",
+            "tsConfig": "packages/api-generator/tsconfig.app.json",
+            "assets": ["packages/api-generator/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "packages/api-generator/src/environments/environment.ts",
+                  "with": "packages/api-generator/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "api-generator:build"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["packages/api-generator/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/packages/api-generator"],
+          "options": {
+            "jestConfig": "packages/api-generator/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/node"
+  },
+  "defaultProject": "api-generator"
+}
