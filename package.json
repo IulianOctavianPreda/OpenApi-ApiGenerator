@@ -4,9 +4,13 @@
   "description": "Api service generator from OpenApi spec for frontend frameworks like Angular, React, Vue and others.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nx serve",
-    "build": "nx build"
+    "build": "nx build",
+    "build:prod": "nx build --configuration=production",
+    "lint": "nx lint",
+    "format": "nx format",
+    "lint:fix": "nx lint --fix",
+    "test": "nx test"
   },
   "repository": {
     "type": "git",
@@ -46,7 +50,10 @@
     "jest": "27.0.3",
     "prettier": "^2.3.1",
     "ts-jest": "27.0.3",
-    "typescript": "~4.3.5",
-    "tslib": "^2.0.0"
+    "tslib": "^2.0.0",
+    "typescript": "~4.3.5"
+  },
+  "dependencies": {
+    "@tstypes/openapi-v2": "^1.0.1"
   }
 }
