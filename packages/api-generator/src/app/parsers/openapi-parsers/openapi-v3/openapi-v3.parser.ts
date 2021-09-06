@@ -1,8 +1,8 @@
 import { OpenApi } from '@tstypes/openapi-v3';
-import { IAbstractSyntaxTree } from './interfaces/abstract-syntax-tree.interface';
-import { IModel } from './interfaces/models.interface';
-import { IOpenApiParser } from './interfaces/openapi-parser.interface';
-import { IService } from './interfaces/service.interface';
+import { IAbstractSyntaxTree } from '../../interfaces/abstract-syntax-tree.interface';
+import { IModel } from '../../interfaces/models.interface';
+import { IOpenApiParser } from '../interfaces/openapi-parser.interface';
+import { IService } from '../../interfaces/service.interface';
 
 export class OpenApiV3Parser implements IOpenApiParser<OpenApi> {
   parse(openApi: OpenApi): IAbstractSyntaxTree {

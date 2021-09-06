@@ -84,6 +84,9 @@ export function main() {
 }
 
 function generateAST(openApi: OpenApi) {
+    Object.entries(openApi.paths).forEach(([pathName,path]) => {
+        path.
+    })
   Object.entries(openApi.components.schemas).forEach(([schemaName, schema]) => {
     types.push(...getProperties(schema, schemaName));
   });

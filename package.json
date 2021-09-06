@@ -40,6 +40,7 @@
     "@nrwl/node": "^12.8.0",
     "@nrwl/tao": "12.8.0",
     "@nrwl/workspace": "12.8.0",
+    "@tstypes/openapi-v2": "^1.0.1",
     "@tstypes/openapi-v3": "^1.0.2",
     "@types/jest": "26.0.24",
     "@types/node": "14.14.33",
@@ -52,8 +53,5 @@
     "ts-jest": "27.0.3",
     "tslib": "^2.0.0",
     "typescript": "~4.3.5"
-  },
-  "dependencies": {
-    "@tstypes/openapi-v2": "^1.0.1"
   }
 }

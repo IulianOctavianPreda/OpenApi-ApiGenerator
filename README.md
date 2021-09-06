@@ -17,12 +17,16 @@ Api service and model generator from OpenApi spec for frontend frameworks like A
 
 - autodetect if yaml or json and convert from yaml to json
 - add option to generate typescript or javascript (with comments or not or with d.ts) - javascript will generate only classes with d.ts types.
+  -- autodetect the type of project - has @angular/axios/etc in the package json then create for them, if multiple are present ask, if none then javascript, should have comprehensive defaults (eg no typescript in package json then use javascript by default, no d.ts needed, only classes, make it as 0 config as possible)
 
 - organize in - factory to create v2 or v3 - builder, generators, parsers - all exposed so they can be piped and customized by others - jest tests\
-   - created by section - using nx, typescrit, openapi - created/built for ... - lightweight, scalabel, pipeable - can be used as command line tool from any os (as long as you have node)
+
+  - created by section - using nx, typescrit, openapi - created/built for ... - lightweight, scalabel, pipeable - can be used as command line tool from any os (as long as you have node)
 
 - move random projects to ip-random
 - delete useless organizations ?
 - update readme on my main page - keep only spotlight projects
 - create roadmap
 - create github project for it
+
+- rules are functions with a const default - always - lazily created? only injected as parameter
