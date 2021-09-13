@@ -1,4 +1,4 @@
-export enum TypeScriptTypes {
+export enum TsType {
   Number = 'number',
   String = 'string',
   Boolean = 'boolean',

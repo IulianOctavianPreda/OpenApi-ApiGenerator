@@ -1,8 +1,9 @@
 import { OpenApiReference, OpenApiSchema } from '@tstypes/openapi-v3';
 
-import { IReferenceModel } from '../../../../ast/interfaces/model.interface';
+import { TsType } from '../../../../ast/enums/typescript-type.enum';
 import { isOpenApiReference } from '../../../type-guards';
 import { ModelType } from './../../../../ast/enums/model-type.enum';
+import { IAnyValueModel } from './../../../../ast/interfaces/model.interface';
 
 /**
  * For schemas with the pattern:
@@ -15,19 +16,20 @@ import { ModelType } from './../../../../ast/enums/model-type.enum';
  * }
  * ```
  */
-export function isReference(
+export function isAnyValue(
   schema: OpenApiSchema | OpenApiReference,
   schemaName: string,
   requiredSchemas: string[] = []
-): IReferenceModel[] | undefined {
-  if (isOpenApiReference(schema)) {
+): IAnyValueModel[] | undefined {
+  if (!isOpenApiReference(schema) && schemaName === ModelType.AnyValue) {
     return [
       {
-        type: ModelType.Reference,
-        name: schemaName,
-        tsType: schema.$ref.split('/').pop(),
+        type: ModelType.AnyValue,
+        description: schema.description,
+        name: ModelType.AnyValue,
+        tsType: TsType.Record,
         required: requiredSchemas.includes(schemaName),
-        nullable: false,
+        nullable: schema?.nullable,
       },
     ];
   }

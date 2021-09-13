@@ -1,14 +1,17 @@
 import { OpenApiMap, OpenApiReference, OpenApiSchema } from '@tstypes/openapi-v3';
-import { IModel } from '../../../interfaces/models.interface';
+
+import { ModelType } from './../../../../ast/enums/model-type.enum';
+import { INullableReferenceModel } from './../../../../ast/interfaces/model.interface';
 import { isNullableReference } from './is-nullable-reference';
 
 test('isNullableReference - General case with allOf property', () => {
-  const models: IModel[] = [
+  const models: INullableReferenceModel[] = [
     {
+      type: ModelType.NullableReference,
       name: 'schemaName',
       nullable: true,
       required: false,
-      type: 'ComponentName',
+      tsType: 'ComponentName',
     },
   ];
 
@@ -26,12 +29,13 @@ test('isNullableReference - General case with allOf property', () => {
 });
 
 test('isNullableReference - General case with anyOf property', () => {
-  const models: IModel[] = [
+  const models: INullableReferenceModel[] = [
     {
+      type: ModelType.NullableReference,
       name: 'schemaName',
       nullable: true,
       required: false,
-      type: 'ComponentName',
+      tsType: 'ComponentName',
     },
   ];
 
@@ -51,12 +55,13 @@ test('isNullableReference - General case with anyOf property', () => {
 // Case can happen while the reference is a property of a different schema
 test('isNullableReference required with anyOf property', () => {
   const requiredSchemas = ['schemaName', 'schemaName2'];
-  const models: IModel[] = [
+  const models: INullableReferenceModel[] = [
     {
+      type: ModelType.NullableReference,
       name: 'schemaName',
       nullable: true,
       required: true,
-      type: 'ComponentName',
+      tsType: 'ComponentName',
     },
   ];
 
@@ -76,12 +81,13 @@ test('isNullableReference required with anyOf property', () => {
 // Case can happen while the reference is a property of a different schema
 test('isNullableReference required with anyOf property', () => {
   const requiredSchemas = ['schemaName', 'schemaName2'];
-  const models: IModel[] = [
+  const models: INullableReferenceModel[] = [
     {
+      type: ModelType.NullableReference,
       name: 'schemaName',
       nullable: true,
       required: true,
-      type: 'ComponentName',
+      tsType: 'ComponentName',
     },
   ];
 
