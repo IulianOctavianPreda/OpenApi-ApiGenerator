@@ -34,7 +34,20 @@ export interface IBaseModel {
   name: IModelName;
   nullable: boolean;
   required: boolean;
-  tsType: TsType | IModelName;
   description?: string;
   properties?: IModel[];
+  additionalProperties?: 
+  discriminator?:{
+    /** The name of the property in the payload that will hold the discriminator value. */
+    propertyName: string;
+    /** An object to hold mappings between payload values and schema names or references. */
+    mapping?: [string, IModelName];
+  }
+
+  default?:any;
+}
+
+export interface IBaseModelRestricted{
+  tsType: TsType | IModelName;
+
 }

@@ -1,5 +1,5 @@
-import { IModel } from '../../interfaces/models.interface';
-import { IService } from '../../interfaces/service.interface';
+import { IModel } from './../../../ast/interfaces/model.interface';
+import { IService } from './../../../ast/interfaces/service.interface';
 
 export type IModelParsingRule<T> = (schema: T, schemaName: string, requiredSchemas?: string[], parse?: IModelParsingRule<T>) => IModel[];
 export type IServiceParsingRule<T> = (
